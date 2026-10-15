@@ -1,0 +1,66 @@
+# 6.1 Strings
+SET nombre_curso "Bases de Datos II"
+GET nombre_curso
+SET creditos 3
+INCR creditos
+GET creditos
+DECR creditos
+GET creditos
+APPEND nombre_curso " (IC-4302)"
+GET nombre_curso
+STRLEN nombre_curso
+MSET profesor "Kenneth Obando" semestre "I"
+MGET profesor semestre
+# 6.2 Lists
+LPUSH motores_db "Oracle" "PostgreSQL" "SQL Server"
+RPUSH motores_db "MySQL"
+LRANGE motores_db 0 -1
+LINDEX motores_db 0
+LRANGE motores_db 1 2
+LPOP motores_db
+RPOP motores_db
+LLEN motores_db
+LRANGE motores_db 0 -1
+# 6.3 Sets
+SADD temas_curso "Transacciones" "Replicación" "Seguridad"
+SADD temas_curso "Replicación"
+SADD temas_curso "Optimización"
+SMEMBERS temas_curso
+SISMEMBER temas_curso "Seguridad"
+SISMEMBER temas_curso "Big Data"
+SREM temas_curso "Transacciones"
+SCARD temas_curso
+SMEMBERS temas_curso
+# 6.4 Hashes
+HSET estudiante:101 nombre "Ana" apellido "Solano" carnet "202300101"
+HGET estudiante:101 nombre
+HGETALL estudiante:101
+HSET estudiante:101 email "ana.solano@email.com"
+HKEYS estudiante:101
+HVALS estudiante:101
+HDEL estudiante:101 carnet
+HLEN estudiante:101
+HGETALL estudiante:101
+# 6.5 Sorted Sets
+ZADD ranking_proyectos 95 "Proyecto Alfa" 88 "Proyecto Beta" 92 "Proyecto Gamma"
+ZADD ranking_proyectos 88 "Proyecto Delta"
+ZRANGE ranking_proyectos 0 -1 WITHSCORES
+ZREVRANGE ranking_proyectos 0 -1 WITHSCORES
+ZREVRANGE ranking_proyectos 0 1 WITHSCORES
+ZRANK ranking_proyectos "Proyecto Gamma"
+ZSCORE ranking_proyectos "Proyecto Alfa"
+ZCARD ranking_proyectos
+# 6.6 Administración de claves
+KEYS *
+EXISTS nombre_curso
+EXISTS profesor_auxiliar
+DEL creditos
+EXISTS creditos
+TYPE motores_db
+TYPE estudiante:101
+EXPIRE temas_curso 60
+TTL temas_curso
+TTL nombre_curso
+TTL creditos
+FLUSHDB
+KEYS *
