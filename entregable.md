@@ -1,7 +1,6 @@
 # Práctica Redis
 
-Bases de Datos II (IC-4302), prof. Kenneth Obando Rodríguez
-
+Bases de Datos II, prof. Kenneth Obando Rodríguez
 Integrantes: Fabián Sánchez, Santiago Villarreal
 
 ## Ambiente

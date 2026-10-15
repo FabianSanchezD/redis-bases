@@ -11,6 +11,7 @@ GET nombre_curso
 STRLEN nombre_curso
 MSET profesor "Kenneth Obando" semestre "I"
 MGET profesor semestre
+
 # 6.2 Lists
 LPUSH motores_db "Oracle" "PostgreSQL" "SQL Server"
 RPUSH motores_db "MySQL"
@@ -21,6 +22,7 @@ LPOP motores_db
 RPOP motores_db
 LLEN motores_db
 LRANGE motores_db 0 -1
+
 # 6.3 Sets
 SADD temas_curso "Transacciones" "Replicación" "Seguridad"
 SADD temas_curso "Replicación"
@@ -31,6 +33,7 @@ SISMEMBER temas_curso "Big Data"
 SREM temas_curso "Transacciones"
 SCARD temas_curso
 SMEMBERS temas_curso
+
 # 6.4 Hashes
 HSET estudiante:101 nombre "Ana" apellido "Solano" carnet "202300101"
 HGET estudiante:101 nombre
@@ -41,6 +44,7 @@ HVALS estudiante:101
 HDEL estudiante:101 carnet
 HLEN estudiante:101
 HGETALL estudiante:101
+
 # 6.5 Sorted Sets
 ZADD ranking_proyectos 95 "Proyecto Alfa" 88 "Proyecto Beta" 92 "Proyecto Gamma"
 ZADD ranking_proyectos 88 "Proyecto Delta"
@@ -50,6 +54,7 @@ ZREVRANGE ranking_proyectos 0 1 WITHSCORES
 ZRANK ranking_proyectos "Proyecto Gamma"
 ZSCORE ranking_proyectos "Proyecto Alfa"
 ZCARD ranking_proyectos
+
 # 6.6 Administración de claves
 KEYS *
 EXISTS nombre_curso
